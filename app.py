@@ -1,17 +1,15 @@
 import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
-import matplotlib.pyplot as plt
-
-# 質問のリスト
+import matplotlib.pyplot as plt# 質問のリスト
 questions = [
-    "性別を教えてください。",
+    "性別を教えてください。（男性 or 女性）",
     "年齢を教えてください。",
-    "身長を教えてください。",
-    "体重を教えてください。",
+    "身長を教えてください。（cm）",
+    "体重を教えてください。（kg）",
     "どのような症状がありますか？",
     "現在服用している薬はありますか？",
-    "アレルギーの有無を教えください。"
+    "アレルギーの有無を教えてください。（はい or いいえ）"
 ]
 
 # 質問に対する回答のリスト
@@ -23,13 +21,13 @@ for question in questions:
         answer = st.text_input(question)
     elif question == "現在服用している薬はありますか？":
         answer = st.text_input(question)
-    elif question == "アレルギーの有無を教えてください。":
-        answer = st.checkbox(question)
+    elif question == "アレルギーの有無をえてください。（はい or いいえ）":
+        answer = st.selectbox(question, ["はい", "いいえ"])
     else:
-        answer = st.number_input(question)
+        answer = st.number_input(question, format="%d")
     answers.append(answer)
 
-# 回答をデータフレームに変換
+# 回答を含むデータフレームに変換
 input_data = pd.DataFrame([answers], columns=["性別", "年齢", "身長", "体重", "症状", "薬", "アレルギー"])
 
 # モデルの読み込み
