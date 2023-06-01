@@ -44,8 +44,8 @@ st.write("最適な医薬品は", prediction[0], "です。")
 # 医薬品に関する情報の表示
 drug_info = data[data["医薬品"] == prediction[0]].drop("医薬品", axis=1)
 st.write(drug_info# 医薬品の副作用の可視化
-side_effects = drug_info.T.squeeze()
-side_effects.plot(kind="bar")
+st.side_effects = drug_info.T.squeeze()
+st.side_effects.plot(kind="bar")
 plt.title("副作用")
 plt.xlabel("副作用")
 plt.ylabel("割合")
