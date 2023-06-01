@@ -18,7 +18,7 @@ questions = [
 answers = []
 
 # 質問に回答するためのフォームを作成
-for question questions:
+for question in questions:
     if question == "どのような症状がありますか？":
         answer = st.text_input(question)
     elif question == "現在服用している薬はありますか？":
