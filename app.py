@@ -39,7 +39,7 @@ model.fit(data.drop("医薬品", axis=1), data["医薬品"])
 prediction = model.predict(input_data.drop("薬", axis=1))
 
 # 医薬品に関する情報の表示
-.write("最適な医薬品は", prediction[0], "です。")
+st.write("最適な医薬品は", prediction[0], "です。")
 
 # 医薬品に関する情報の表示
 drug_info = data[data["医薬品"] == prediction[0]].drop("医薬品", axis=1)
